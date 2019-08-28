@@ -126,7 +126,7 @@ object_type: {
 	 janus_slip_vel: float "Slip velocity coeff B1"
 	 janus_slip_mode: float "Blake squirmer mode B2/B1"
 	 janus_rotlet_C1: float "rotlet coefficient C1"
-	 janus_rotlet_dipole_C2: float  "rotlet dipole C2"
+	 janus_rotlet_dipole_C2: float "rotlet dipole C2"
       }
    }//end spherical_particle
 
@@ -222,6 +222,12 @@ switch: {
    ns_solver:{
       OBL_INT: select {'linear', 'spline'} "interpolation scheme for Oblique/Rectangular transform"
    }
+   wall:{
+	type: select{"NONE", "FLAT"}
+	FLAT:{
+		axis: select{"X", "Y", "Z"} "perpendicular axis to flat parallel walls"
+		DH: int "wall thickness in number of grid points" }
+	}
 }
 
 output: {
